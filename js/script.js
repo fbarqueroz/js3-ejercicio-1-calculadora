@@ -50,8 +50,14 @@ function imprimirError(mensaje) {
 // TERMINA EL BOILERPLATE
 
 // COMIENZA ACA
+
+//
+// Ejercicio 1 -- 🍕 Fabián Barquero Zúñiga 🍕
+//
+
 function hacerOperacion() {
-  // Se realiza condicional para identificar espacios vacios
+
+  // Se realiza condicionales para identificar espacios vacios
 
   // Espacio vacio input 1
   if (isNaN(parseInt(input1.value))) {
@@ -63,8 +69,55 @@ function hacerOperacion() {
     imprimirError('El campo 2 esta vacio. Por favor ingrese un valor e intentelo de nuevo.');
   }
 
-  // Condicional para la opcion de suma
-  if (operacion === 'sumar') {
-    imprimirResultado (resultado);
+  else {
+
+    let select = document.querySelector('select');
+
+    // Evento del select
+    select.addEventListener('click', mathOperations);
+
+    let selectOperation = select.value;
+
+    // Se realiza funcion de operaciones matematicas
+    function mathOperations () {
+
+      // Condicional para la opcion de suma
+      if (selectOperation === 'sumar') {
+
+        // Se llama a los input (valores) y la variable resultado
+        let sumaTotal;
+        let input_1 = parseInt(input1.value);
+        let input_2 = parseInt(input2.value);
+        sumaTotal = input_1 + input_2;
+        imprimirResultado(sumaTotal);
+      }
+
+      // Condicional para la opcion de resta
+      else if (selectOperation === 'restar') {
+        let restaTotal;
+        let input_1 = parseInt(input1.value);
+        let input_2 = parseInt(input2.value);
+        restaTotal = input_1 - input_2;
+        imprimirResultado(restaTotal);
+      }
+
+      //Condicional para la opcion de multiplicar
+      else if (selectOperation === 'multiplicar') {
+        let multiplicacionTotal;
+        let input_1 = parseInt(input1.value);
+        let input_2 = parseInt(input2.value);
+        multiplicacionTotal = input_1 * input_2;
+        imprimirResultado(multiplicacionTotal);
+      }
+
+      //Condicional para la opcion de multiplicar
+      else if (selectOperation === 'dividir') {
+        let divisionTotal;
+        let input_1 = parseInt(input1.value);
+        let input_2 = parseInt(input2.value);
+        divisionTotal = input_1 / input_2;
+        imprimirResultado(divisionTotal);
+      }
+    }
   }
 }
